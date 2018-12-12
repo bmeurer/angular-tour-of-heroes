@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional, Inject } from '@angular/core';
 import { Hero } from './hero';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,8 +18,11 @@ export class HeroService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
-  ) {}
+    private messageService: MessageService,
+    @Optional() @Inject(APP_BASE_HREF) origin: string
+  ) {
+    this.heroesUrl = `${origin}${this.heroesUrl}`;
+  }
 
   /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
