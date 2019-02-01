@@ -28,7 +28,7 @@ async function main() {
   console.log('Warmed up...');
 
   // Testing
-  const time = await driver(100, routes);
+  const time = await driver(1000, routes);
   console.log(`Time: ${time} ms.`);
 }
 
