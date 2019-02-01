@@ -33,7 +33,7 @@
     "angular-in-memory-web-api": "^0.7.0",
     "core-js": "^2.6.3",
     "express": "^4.15.2",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.4.0",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
